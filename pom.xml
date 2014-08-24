@@ -8,7 +8,24 @@
 	<name>Bookmarker REST</name>
 	<url>http://maven.apache.org</url>
 
+	<properties>
+		<java.version>1.8</java.version>
+		<character.encoding>UTF-8</character.encoding>
+	</properties>
+
+
 	<dependencies>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.0.8.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>3.0.8.Final</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -51,8 +68,29 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warName>${project.build.finalName}</warName>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>local-tomcat-8</server>
+					<charset>${character.encoding}</charset>
 				</configuration>
 			</plugin>
 

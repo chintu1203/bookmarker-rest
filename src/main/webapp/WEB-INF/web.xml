@@ -6,4 +6,19 @@
 
 	<display-name>Bookmarker REST</display-name>
 
+
+	<servlet>
+		<servlet-name>RestApplication</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>pl.dkolaczynski.bookmarker.config.RestApplication</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RestApplication</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>
