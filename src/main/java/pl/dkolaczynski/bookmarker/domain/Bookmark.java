@@ -27,7 +27,6 @@ public class Bookmark implements Serializable {
 	private String description;
 	private boolean favorite;
 	private int rating;
-	private Category category;
 
 	@Override
 	public String toString() {
@@ -80,14 +79,6 @@ public class Bookmark implements Serializable {
 
 	public void setRating(int rating) {
 		this.rating = rating;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 
 }

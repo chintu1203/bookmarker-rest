@@ -6,12 +6,25 @@
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Bookmarker REST</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<character.encoding>UTF-8</character.encoding>
+		<version.resteasy>3.0.8.Final</version.resteasy>
 	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>jboss-javaee-7.0-with-tools</artifactId>
+				<version>8.0.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 
 	<dependencies>
@@ -19,25 +32,33 @@
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
-			<version>3.0.8.Final</version>
+			<version>${version.resteasy}</version>
+			<scope>provided</scope>
 		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.jboss.resteasy</groupId> -->
+		<!-- <artifactId>resteasy-cdi</artifactId> -->
+		<!-- <version>${version.resteasy}</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-client</artifactId>
-			<version>3.0.8.Final</version>
+			<version>${version.resteasy}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.6.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<version>1.2</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -55,7 +76,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+<!-- 			<version>4.11</version> -->
 			<scope>test</scope>
 		</dependency>
 
