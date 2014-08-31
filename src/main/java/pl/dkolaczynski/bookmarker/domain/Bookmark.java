@@ -1,13 +1,18 @@
 package pl.dkolaczynski.bookmarker.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -21,12 +26,20 @@ public class Bookmark implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotNull
 	@Column(nullable = false)
 	private String name;
+
+	@NotNull
+	@Column(nullable = false, unique = true)
 	private String url;
 	private String description;
 	private boolean favorite;
 	private int rating;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "bookmarks_tags")
+	private Set<Tag> tags;
 
 	@Override
 	public String toString() {
@@ -79,6 +92,14 @@ public class Bookmark implements Serializable {
 
 	public void setRating(int rating) {
 		this.rating = rating;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
 	}
 
 }
