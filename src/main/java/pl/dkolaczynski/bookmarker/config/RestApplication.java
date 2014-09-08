@@ -25,27 +25,27 @@ public class RestApplication extends Application {
 		Client client = ClientBuilder.newClient();
 
 		try {
-			Response response = null;
-			Bookmark entity = new Bookmark();
-			entity.setName("Test!");
-			entity.setUrl("www.com");
-			entity.setRating(2);
-			entity.setFavorite(false);
-
-			String ent = "{\"name\":\"sada\",\"url\":\"asd\",\"favorite\":true,\"rating\":1}";
-			response = client.target(APP_URI + "/bookmarks").request().post(Entity.json(ent));
-			System.out.println(response.getEntity());
-			System.out.println(response.getStatus() + "");
-			if (response.getStatus() != 201)
-				throw new RuntimeException("Failed to create");
-			response.close();
+//			Response response = null;
+//			Bookmark entity = new Bookmark();
+//			entity.setName("Test!");
+//			entity.setUrl("www.com");
+//			entity.setRating(2);
+//			entity.setFavorite(false);
+//
+//			String ent = "{\"name\":\"sada\",\"url\":\"asd\",\"favorite\":true,\"rating\":1}";
+//			response = client.target(APP_URI + "/bookmarks").request().post(Entity.json(ent));
+//			System.out.println(response.getEntity());
+//			System.out.println(response.getStatus() + "");
+//			if (response.getStatus() != 201)
+//				throw new RuntimeException("Failed to create");
+//			response.close();
 
 			System.out.println("** Testing RESTEasy:");
 			String bookmark = client.target(APP_URI + "/bookmarks/1").request().get(String.class);
 			System.out.println(bookmark);
 			
-			 response = client.target(APP_URI + "/bookmarks/1").request().delete();
-			 System.out.println(response.getStatus() + "");
+//			 response = client.target(APP_URI + "/bookmarks/1").request().delete();
+//			 System.out.println(response.getStatus() + "");
 		} finally {
 			client.close();
 		}

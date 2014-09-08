@@ -1,0 +1,15 @@
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Wirtualna Polska', 'http://www.wp.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Onet', 'http://www.onet.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Google', 'http://www.google.com', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Bing', 'http://www.bing.com', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Geek Week', 'http://www.geekweek.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Feedly', 'http://www.feedly.com', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Medycyna Praktyczna', 'http://www.mp.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('O2', 'http://www.o2.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Plus', 'http://www.plus.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Play', 'http://www.play.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('You Tube', 'http://www.youtube.com', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Vimeo', 'http://www.vimeo.com', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Gazeta', 'http://www.gazeta.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Pogodynka', 'http://www.pogodynka.pl', false, 1);
+INSERT INTO public.bookmarks ("name", url, favorite, rating) VALUES ('Filmweb', 'http://www.filmweb.pl', false, 1);

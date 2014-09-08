@@ -10,6 +10,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class Page<T> implements Serializable {
 
 	private List<T> items;
+	private int count;
 
 	@Override
 	public String toString() {
@@ -22,6 +23,14 @@ public class Page<T> implements Serializable {
 
 	public void setItems(List<T> items) {
 		this.items = items;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 }

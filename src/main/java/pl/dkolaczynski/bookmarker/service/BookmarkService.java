@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pl.dkolaczynski.bookmarker.domain.Bookmark;
+import pl.dkolaczynski.bookmarker.domain.Page;
+import pl.dkolaczynski.bookmarker.domain.PageCriteria;
 import pl.dkolaczynski.bookmarker.repository.BookmarkDao;
 
 public class BookmarkService {
@@ -38,6 +40,14 @@ public class BookmarkService {
 
 	public Bookmark getBookmark(long id) {
 		return id <= 0 ? null : bookmarkDao.findById(id);
+	}
+
+	public Page<Bookmark> getBookmarks(PageCriteria criteria) {
+		Page<Bookmark> page = new Page<>();
+		page.setItems(bookmarkDao.findAll(criteria));
+		page.setCount(page.getItems().size());
+
+		return page;
 	}
 
 	public boolean deleteBookmark(long id) {

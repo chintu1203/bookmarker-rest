@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pl.dkolaczynski.bookmarker.domain.Bookmark;
+import pl.dkolaczynski.bookmarker.domain.Page;
+import pl.dkolaczynski.bookmarker.domain.PageCriteria;
 import pl.dkolaczynski.bookmarker.service.BookmarkService;
 
 @ApplicationScoped
@@ -36,10 +38,18 @@ public class BookmarkResourceImpl implements BookmarkResource {
 	public Bookmark showBookmark(long id) {
 		Bookmark bookmark = bookmarkService.getBookmark(id);
 
-		if (bookmark == null)
-			throw new NotFoundException();
+//		if (bookmark == null)
+//			throw new NotFoundException();
 
 		return bookmark;
+	}
+
+	@Override
+	public Page<Bookmark> showBookmarks(PageCriteria criteria) {
+		if (LOGGER.isInfoEnabled())
+			LOGGER.info("** queried criteria: {}", criteria);
+
+		return bookmarkService.getBookmarks(criteria);
 	}
 
 	@Override
